@@ -10,10 +10,16 @@ import AVKit
 
 struct FeedCell: View {
     let post: Post
+    var player: AVPlayer
+
+    init(post: Post, player: AVPlayer) {
+        self.post = post
+        self.player = player
+    }
 
     var body: some View {
         ZStack {
-            VideoPlayer(player: AVPlayer(url: post.videoUrl.localUrlWhenInPreviewMode!))
+            CustomVideoPlayer(player: player)
                 .containerRelativeFrame([.horizontal, .vertical])
 
             VStack {
@@ -89,6 +95,18 @@ struct FeedCell: View {
             }
             .padding()
         }
+        .onTapGesture {
+            switch player.timeControlStatus {
+            case .paused:
+                player.play()
+            case .waitingToPlayAtSpecifiedRate:
+                break
+            case .playing:
+                player.pause()
+            @unknown default:
+                break
+            }
+        }
     }
 }
 
@@ -96,7 +114,8 @@ struct FeedCell: View {
     FeedCell(
         post: .init(
             id: NSUUID().uuidString,
-            videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"
-        )
+            videoUrl: ""
+        ),
+        player: AVPlayer()
     )
 }
