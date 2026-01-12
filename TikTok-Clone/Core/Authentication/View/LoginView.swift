@@ -15,16 +15,15 @@ struct LoginView: View {
         NavigationStack {
             VStack {
                 Spacer()
-                // login image
+
                 Image("tiktok-app-icon")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 120, height: 120)
                     .padding()
 
-                // text fields
                 VStack {
-                    TextField("Enter your enail", text: $email)
+                    TextField("Enter your email", text: $email)
                         .textInputAutocapitalization(.never)
                         .modifier(StandardTextFieldModifier())
 
@@ -40,14 +39,12 @@ struct LoginView: View {
                         .font(.footnote)
                         .fontWeight(.semibold)
                         .padding(.top)
-                        .padding(.trailing, 20)
+                        .padding(.trailing, 28)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
 
-                // login button
-
                 Button {
-                    print("aqui")
+                    print("DEBUG: Login")
                 } label: {
                     Text("Login")
                         .font(.subheadline)
@@ -58,10 +55,11 @@ struct LoginView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
                 .padding(.vertical)
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1 : 0.7)
 
                 Spacer()
 
-                // go to sign up
                 Divider()
 
                 NavigationLink {
@@ -77,6 +75,14 @@ struct LoginView: View {
                 }
             }
         }
+    }
+}
+
+// MARK: - AuthenticationFormProtocol
+
+extension LoginView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return email.isValidEmail && password.isValidPassword
     }
 }
 
