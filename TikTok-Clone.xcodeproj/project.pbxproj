@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E4B74A52F153C2A00B1B9A4 /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B74A42F153C2A00B1B9A4 /* FirebaseAI */; };
 		7E4B74A72F153C2A00B1B9A4 /* FirebaseAILogic in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B74A62F153C2A00B1B9A4 /* FirebaseAILogic */; };
-		7E4B74A92F153C2A00B1B9A4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B74A82F153C2A00B1B9A4 /* FirebaseAnalytics */; };
-		7E4B74AB2F153C2A00B1B9A4 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B74AA2F153C2A00B1B9A4 /* FirebaseAnalyticsCore */; };
 		7E4B74AD2F153C2A00B1B9A4 /* FirebaseAnalyticsIdentitySupport in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B74AC2F153C2A00B1B9A4 /* FirebaseAnalyticsIdentitySupport */; };
 		7E4B74AF2F153C2A00B1B9A4 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B74AE2F153C2A00B1B9A4 /* FirebaseAppCheck */; };
 		7E4B74B12F153C2A00B1B9A4 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B74B02F153C2A00B1B9A4 /* FirebaseAppDistribution-Beta */; };
@@ -86,20 +83,17 @@
 				7E4B74A72F153C2A00B1B9A4 /* FirebaseAILogic in Frameworks */,
 				7E4B74AD2F153C2A00B1B9A4 /* FirebaseAnalyticsIdentitySupport in Frameworks */,
 				7E4B74C52F153C2A00B1B9A4 /* FirebaseInAppMessaging-Beta in Frameworks */,
-				7E4B74A52F153C2A00B1B9A4 /* FirebaseAI in Frameworks */,
 				7E4B74B92F153C2A00B1B9A4 /* FirebaseCrashlytics in Frameworks */,
 				7E4B74C32F153C2A00B1B9A4 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				7E4B74D32F153C2A00B1B9A4 /* FirebaseStorageCombine-Community in Frameworks */,
 				7E4B74BB2F153C2A00B1B9A4 /* FirebaseDatabase in Frameworks */,
 				7E4B74D12F153C2A00B1B9A4 /* FirebaseStorage in Frameworks */,
 				7E4B74CF2F153C2A00B1B9A4 /* FirebaseRemoteConfig in Frameworks */,
-				7E4B74A92F153C2A00B1B9A4 /* FirebaseAnalytics in Frameworks */,
 				7E4B74CB2F153C2A00B1B9A4 /* FirebaseMessaging in Frameworks */,
 				7E4B74C92F153C2A00B1B9A4 /* FirebaseMLModelDownloader in Frameworks */,
 				7E4B74CD2F153C2A00B1B9A4 /* FirebasePerformance in Frameworks */,
 				7E4B74B72F153C2A00B1B9A4 /* FirebaseCore in Frameworks */,
 				7E4B74AF2F153C2A00B1B9A4 /* FirebaseAppCheck in Frameworks */,
-				7E4B74AB2F153C2A00B1B9A4 /* FirebaseAnalyticsCore in Frameworks */,
 				7E4B74C12F153C2A00B1B9A4 /* FirebaseFunctions in Frameworks */,
 				7E4B74B32F153C2A00B1B9A4 /* FirebaseAuth in Frameworks */,
 				7E4B74BF2F153C2A00B1B9A4 /* FirebaseFirestoreCombine-Community in Frameworks */,
@@ -163,10 +157,7 @@
 			);
 			name = "TikTok-Clone";
 			packageProductDependencies = (
-				7E4B74A42F153C2A00B1B9A4 /* FirebaseAI */,
 				7E4B74A62F153C2A00B1B9A4 /* FirebaseAILogic */,
-				7E4B74A82F153C2A00B1B9A4 /* FirebaseAnalytics */,
-				7E4B74AA2F153C2A00B1B9A4 /* FirebaseAnalyticsCore */,
 				7E4B74AC2F153C2A00B1B9A4 /* FirebaseAnalyticsIdentitySupport */,
 				7E4B74AE2F153C2A00B1B9A4 /* FirebaseAppCheck */,
 				7E4B74B02F153C2A00B1B9A4 /* FirebaseAppDistribution-Beta */,
@@ -674,25 +665,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7E4B74A42F153C2A00B1B9A4 /* FirebaseAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7E4B74A32F153C2A00B1B9A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAI;
-		};
 		7E4B74A62F153C2A00B1B9A4 /* FirebaseAILogic */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7E4B74A32F153C2A00B1B9A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAILogic;
-		};
-		7E4B74A82F153C2A00B1B9A4 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7E4B74A32F153C2A00B1B9A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		7E4B74AA2F153C2A00B1B9A4 /* FirebaseAnalyticsCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7E4B74A32F153C2A00B1B9A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsCore;
 		};
 		7E4B74AC2F153C2A00B1B9A4 /* FirebaseAnalyticsIdentitySupport */ = {
 			isa = XCSwiftPackageProductDependency;
