@@ -42,24 +42,9 @@ struct EditProfileView: View {
                         .font(.footnote)
                         .foregroundStyle(Color(.systemGray2))
                         .fontWeight(.semibold)
-                    
-                    HStack {
-                        Text("Name")
-                        Spacer()
-                        Text("Lewis Hamilton")
-                    }
-                    
-                    HStack {
-                        Text("Username")
-                        Spacer()
-                        Text("lewis_hamilton")
-                    }
-                    
-                    HStack {
-                        Text("Bio")
-                        Spacer()
-                        Text("Add a bio")
-                    }
+                    EditProfileOptionRowView(option: .name, value: "Lewis Hamilton")
+                    EditProfileOptionRowView(option: .username, value: "lewis_hamilton")
+                    EditProfileOptionRowView(option: .bio, value: "F1 Driver")
                 }
                 .font(.subheadline)
                 .padding()
@@ -69,6 +54,9 @@ struct EditProfileView: View {
             .task(id: selectedPickerItem) {
                 await loadImage(fromItem: selectedPickerItem)
             }
+            .navigationDestination(for: EditProfileOptions.self, destination: { option in
+                Text(option.title)
+            })
             .navigationTitle("Edit Profile")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -101,4 +89,18 @@ extension EditProfileView {
 
 #Preview {
     EditProfileView()
+}
+
+struct EditProfileOptionRowView: View {
+    let option: EditProfileOptions
+    let value: String
+
+    var body: some View {
+        NavigationLink(value: option) {
+            Text(option.title)
+            Spacer()
+            Text(value)
+        }
+        .buttonStyle(.plain)
+    }
 }
