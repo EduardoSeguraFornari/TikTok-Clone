@@ -5,7 +5,7 @@
 //  Created by Eduardo Segura Fornari on 14/01/26.
 //
 
-struct User: Identifiable {
+struct User: Identifiable, Hashable {
     let id: String
     let username: String
     let email: String

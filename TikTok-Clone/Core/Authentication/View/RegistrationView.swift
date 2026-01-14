@@ -30,7 +30,7 @@ struct RegistrationView: View {
                 .padding()
 
             VStack {
-                TextField("Enter your ail", text: $email)
+                TextField("Enter your email", text: $email)
                     .textInputAutocapitalization(.never)
                     .modifier(StandardTextFieldModifier())
 
