@@ -8,16 +8,24 @@
 import Firebase
 import FirebaseAuth
 
+@MainActor
 final class AuthService {
-
     @Published var userSession: FirebaseAuth.User?
 
     func updateUserSession() {
         self.userSession = Auth.auth().currentUser
     }
 
-    func login(withEmail email: String, password: String) async throws {
-        print("DEBUG: Login with email")
+    func logIn(withEmail email: String, password: String) async throws {
+        print("DEBUG: User info - \(email), \(password)")
+        do {
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            self.userSession = result.user
+            print("DEBUG: User \(email) did log in")
+        } catch {
+            print("DEBUG: Failed to create user with error \(error.localizedDescription)")
+            throw error
+        }
     }
 
     func createUser(
@@ -26,14 +34,16 @@ final class AuthService {
         print("DEBUG: User info - \(email), \(password), \(username), \(fullname)")
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            self.userSession = result.user
             print("DEBUG: User is created \(result.user.uid)")
         } catch {
-            print("DEBUG: Failed to creat user with error \(error.localizedDescription)")
+            print("DEBUG: Failed to create user with error \(error.localizedDescription)")
             throw error
         }
     }
 
     func signOut() {
-        
+        try? Auth.auth().signOut()
+        self.userSession = nil
     }
 }

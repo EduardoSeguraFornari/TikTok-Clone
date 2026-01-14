@@ -8,6 +8,7 @@
 import SwiftUI
 import AVKit
 
+@MainActor
 struct FeedView: View {
     @StateObject var viewModel = FeedViewModel()
     @State private var scrollPosition: String?

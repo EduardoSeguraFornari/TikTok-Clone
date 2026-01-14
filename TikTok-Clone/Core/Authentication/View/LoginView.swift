@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct LoginView: View {
+    @StateObject var viewModel: LoginViewModel
+
+    private let authService: AuthService
     @State private var email = ""
     @State private var password = ""
-    @StateObject var viewModel = LoginViewModel(service: AuthService())
 
+    init(authService: AuthService) {
+        self.authService = authService
+        self._viewModel = StateObject(wrappedValue: LoginViewModel(service: authService))
+    }
     var body: some View {
         NavigationStack {
             VStack {
@@ -64,7 +70,7 @@ struct LoginView: View {
                 Divider()
 
                 NavigationLink {
-                    RegistrationView()
+                    RegistrationView(authService: authService)
                 } label: {
                     HStack(spacing: 3) {
                         Text("Don't have an account?")
@@ -88,5 +94,5 @@ extension LoginView: AuthenticationFormProtocol {
 }
 
 #Preview {
-    LoginView()
+    LoginView(authService: AuthService())
 }

@@ -16,7 +16,7 @@ final class LoginViewModel: ObservableObject {
 
     func login(withEmail email: String, password: String) async {
         do {
-            try await service.login(withEmail: email, password: password)
+            try await service.logIn(withEmail: email, password: password)
         } catch {
             print("DEBUG: Did fail to log in with error \(error)")
         }
