@@ -12,9 +12,9 @@ import FirebaseAuth
 final class AuthService {
     @Published var userSession: FirebaseAuth.User?
 
-    private let userService: UserService
+    private let userService: UserServiceProtocol
 
-    init(userService: UserService = UserService()) {
+    init(userService: UserServiceProtocol = UserService()) {
         self.userService = userService
     }
 
