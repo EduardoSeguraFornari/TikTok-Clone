@@ -23,7 +23,7 @@ struct TikTok_CloneApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(authService: authService)
+            ContentView(authService: authService, userService: UserService())
         }
     }
 }
