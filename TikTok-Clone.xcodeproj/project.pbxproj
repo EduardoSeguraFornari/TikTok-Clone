@@ -28,6 +28,7 @@
 		7E4B74CF2F153C2A00B1B9A4 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B74CE2F153C2A00B1B9A4 /* FirebaseRemoteConfig */; };
 		7E4B74D12F153C2A00B1B9A4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B74D02F153C2A00B1B9A4 /* FirebaseStorage */; };
 		7E4B74D32F153C2A00B1B9A4 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B74D22F153C2A00B1B9A4 /* FirebaseStorageCombine-Community */; };
+		7E4B757E2F19595B00B1B9A4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7E4B757D2F19595B00B1B9A4 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 				7E4B74AD2F153C2A00B1B9A4 /* FirebaseAnalyticsIdentitySupport in Frameworks */,
 				7E4B74C52F153C2A00B1B9A4 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				7E4B74B92F153C2A00B1B9A4 /* FirebaseCrashlytics in Frameworks */,
+				7E4B757E2F19595B00B1B9A4 /* Kingfisher in Frameworks */,
 				7E4B74C32F153C2A00B1B9A4 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				7E4B74D32F153C2A00B1B9A4 /* FirebaseStorageCombine-Community in Frameworks */,
 				7E4B74BB2F153C2A00B1B9A4 /* FirebaseDatabase in Frameworks */,
@@ -178,6 +180,7 @@
 				7E4B74CE2F153C2A00B1B9A4 /* FirebaseRemoteConfig */,
 				7E4B74D02F153C2A00B1B9A4 /* FirebaseStorage */,
 				7E4B74D22F153C2A00B1B9A4 /* FirebaseStorageCombine-Community */,
+				7E4B757D2F19595B00B1B9A4 /* Kingfisher */,
 			);
 			productName = "TikTok-Clone";
 			productReference = 7E6724452DD4E9AD00BDD7A9 /* TikTok-Clone.app */;
@@ -263,6 +266,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				7E4B74A32F153C2A00B1B9A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7E4B757C2F19595B00B1B9A4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7E6724462DD4E9AD00BDD7A9 /* Products */;
@@ -662,6 +666,14 @@
 				minimumVersion = 12.7.0;
 			};
 		};
+		7E4B757C2F19595B00B1B9A4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.6.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -769,6 +781,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7E4B74A32F153C2A00B1B9A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		7E4B757D2F19595B00B1B9A4 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E4B757C2F19595B00B1B9A4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

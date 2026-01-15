@@ -56,7 +56,7 @@ final class AuthService {
     func uploadUserData(
         withEmail email: String, id: String, username: String, fullname: String
     ) async throws {
-        let user = User(id: id, username: username, email: email, fullName: fullname, bio: nil, profileImage: nil)
+        let user = User(id: id, username: username, email: email, fullName: fullname, bio: nil, profileImageUrl: nil)
         try await userService.uploadUserData(user)
     }
 }
