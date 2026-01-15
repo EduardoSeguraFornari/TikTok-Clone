@@ -9,10 +9,10 @@ import SwiftUI
 
 struct MainTabView: View {
     @State private var selectedTab = 0
-    private let authService: AuthService
+    private let authService: AuthServiceProtocol
     private let user: User
 
-    init(authService: AuthService, user: User) {
+    init(authService: AuthServiceProtocol, user: User) {
         self.authService = authService
         self.user = user
     }
@@ -73,5 +73,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView(authService: AuthService(), user: DeveloperPreview.user)
+    MainTabView(authService: AuthServiceMock(), user: DeveloperPreview.user)
 }

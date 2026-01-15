@@ -19,11 +19,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct TikTok_CloneApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    private let authService = AuthService()
+    private let authService = AuthServiceMock()
 
     var body: some Scene {
         WindowGroup {
-            ContentView(authService: authService, userService: UserService())
+            ContentView(authService: authService, userService: UserServiceMock())
         }
     }
 }

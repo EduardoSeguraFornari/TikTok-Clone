@@ -10,11 +10,11 @@ import SwiftUI
 struct LoginView: View {
     @StateObject var viewModel: LoginViewModel
 
-    private let authService: AuthService
+    private let authService: AuthServiceProtocol
     @State private var email = ""
     @State private var password = ""
 
-    init(authService: AuthService) {
+    init(authService: AuthServiceProtocol) {
         self.authService = authService
         self._viewModel = StateObject(wrappedValue: LoginViewModel(service: authService))
     }
@@ -94,5 +94,5 @@ extension LoginView: AuthenticationFormProtocol {
 }
 
 #Preview {
-    LoginView(authService: AuthService())
+    LoginView(authService: AuthServiceMock())
 }

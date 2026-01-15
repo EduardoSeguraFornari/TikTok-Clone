@@ -15,7 +15,7 @@ struct RegistrationView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: RegistrationViewModel
 
-    init(authService: AuthService) {
+    init(authService: AuthServiceProtocol) {
         self._viewModel = StateObject(wrappedValue: RegistrationViewModel(service: authService))
     }
 
@@ -96,5 +96,5 @@ extension RegistrationView: AuthenticationFormProtocol {
 }
 
 #Preview {
-    RegistrationView(authService: AuthService())
+    RegistrationView(authService: AuthServiceMock())
 }

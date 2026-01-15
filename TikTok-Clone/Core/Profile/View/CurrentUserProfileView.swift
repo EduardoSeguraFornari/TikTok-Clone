@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CurrentUserProfileView: View {
-    private let authService: AuthService
+    private let authService: AuthServiceProtocol
     private let user: User
 
-    init(authService: AuthService, user: User) {
+    init(authService: AuthServiceProtocol, user: User) {
         self.authService = authService
         self.user = user
     }
@@ -44,5 +44,5 @@ struct CurrentUserProfileView: View {
 }
 
 #Preview {
-    CurrentUserProfileView(authService: AuthService(), user: DeveloperPreview.user)
+    CurrentUserProfileView(authService: AuthServiceMock(), user: DeveloperPreview.user)
 }

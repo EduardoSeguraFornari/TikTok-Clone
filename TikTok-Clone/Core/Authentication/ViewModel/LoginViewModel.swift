@@ -8,9 +8,9 @@
 import Foundation
 
 final class LoginViewModel: ObservableObject {
-    private let service: AuthService
+    private let service: AuthServiceProtocol
 
-    init(service: AuthService) {
+    init(service: AuthServiceProtocol) {
         self.service = service
     }
 

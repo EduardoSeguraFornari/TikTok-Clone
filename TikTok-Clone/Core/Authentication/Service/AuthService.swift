@@ -9,9 +9,7 @@ import Firebase
 import FirebaseAuth
 
 @MainActor
-final class AuthService {
-    @Published var userSession: FirebaseAuth.User?
-
+final class AuthService: AuthServiceProtocol {
     private let userService: UserServiceProtocol
 
     init(userService: UserServiceProtocol = UserService()) {
@@ -19,15 +17,13 @@ final class AuthService {
     }
 
     func updateUserSession() {
-        self.userSession = Auth.auth().currentUser
+        Authentication.shared.loggedIn = Auth.auth().currentUser != nil
     }
 
     func logIn(withEmail email: String, password: String) async throws {
-        print("DEBUG: User info - \(email), \(password)")
         do {
-            let result = try await Auth.auth().signIn(withEmail: email, password: password)
-            self.userSession = result.user
-            print("DEBUG: User \(email) did log in")
+            try await Auth.auth().signIn(withEmail: email, password: password)
+            Authentication.shared.loggedIn = true
         } catch {
             print("DEBUG: Failed to create user with error \(error.localizedDescription)")
             throw error
@@ -37,10 +33,9 @@ final class AuthService {
     func createUser(
         withEmail email: String, password: String, username: String, fullname: String
     ) async throws {
-        print("DEBUG: User info - \(email), \(password), \(username), \(fullname)")
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
-            self.userSession = result.user
+            Authentication.shared.loggedIn = true
             try await uploadUserData(withEmail: email, id: result.user.uid, username: username, fullname: fullname)
         } catch {
             print("DEBUG: Failed to create user with error \(error.localizedDescription)")
@@ -50,7 +45,7 @@ final class AuthService {
 
     func signOut() {
         try? Auth.auth().signOut()
-        self.userSession = nil
+        Authentication.shared.loggedIn = nil
     }
 
     func uploadUserData(

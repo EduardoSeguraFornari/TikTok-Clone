@@ -11,14 +11,14 @@ import Combine
 
 @MainActor
 final class ContentViewModel: ObservableObject {
-    @Published var userSession: FirebaseAuth.User?
+    @Published var loggedIn: Bool?
     @Published var currentUser: User?
 
-    private let authService: AuthService
+    private let authService: AuthServiceProtocol
     private let userService: UserServiceProtocol
     private var cancellables: Set<AnyCancellable> = []
 
-    init(authService: AuthService, userService: UserServiceProtocol) {
+    init(authService: AuthServiceProtocol, userService: UserServiceProtocol) {
         self.authService = authService
         self.userService = userService
 
@@ -27,14 +27,14 @@ final class ContentViewModel: ObservableObject {
     }
 
     private func setupSubscribers() {
-        authService.$userSession.sink { [weak self] user in
-            self?.userSession = user
+        Authentication.shared.$loggedIn.sink { [weak self] user in
+            self?.loggedIn = user
             self?.fetchCurrentUser()
         }.store(in: &cancellables)
     }
 
     private func fetchCurrentUser() {
-        guard userSession != nil else { return }
+        guard loggedIn != nil else { return }
         Task { currentUser = try await userService.fetchCurrentUser() }
     }
 }
