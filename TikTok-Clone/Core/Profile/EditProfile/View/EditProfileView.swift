@@ -12,7 +12,9 @@ struct EditProfileView: View {
     @Environment(\.dismiss) var dismiss
 
     @State private var selectedPickerItem: PhotosPickerItem?
+    @StateObject private var manager = EditProfileManager(imageUploaderServer: ImageUploaderServer())
     @State private var profileImage: Image?
+    @State private var uiImage: UIImage?
     private let user: User
 
     init(user: User) {
@@ -73,7 +75,7 @@ struct EditProfileView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") {
-                        
+                        onDoneTapped()
                     }
                     .fontWeight(.semibold)
                     .foregroundStyle(.black)
@@ -88,7 +90,16 @@ private extension EditProfileView {
         guard let item else { return }
         guard let data = try? await item.loadTransferable(type: Data.self) else { return }
         guard let uiImage = UIImage(data: data) else { return }
+        self.uiImage = uiImage
         self.profileImage = Image(uiImage: uiImage)
+    }
+
+    func onDoneTapped() {
+        Task {
+            guard let uiImage else { return }
+            await manager .uploadProfileImage(uiImage)
+            dismiss()
+        }
     }
 }
 
