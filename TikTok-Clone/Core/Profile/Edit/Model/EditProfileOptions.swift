@@ -6,15 +6,15 @@
 //
 
 enum EditProfileOptions: Hashable {
+    case bio
     case name
     case username
-    case bio
 
     var title: String {
         switch self {
+        case .bio: return "Bio"
         case .name: return "Name"
         case .username: return "Username"
-        case .bio: return "Bio"
         }
     }
 }
